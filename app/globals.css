@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 50%, #b8860b 100%);
+  }
+
+  .bg-gradient-gold-subtle {
+    background: linear-gradient(135deg, #fffef7 0%, #fef3c7 50%, #fde68a 100%);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-gold {
+    box-shadow: 0 4px 14px 0 rgba(212, 175, 55, 0.15);
+  }
+
+  .shadow-gold-lg {
+    box-shadow: 0 10px 25px -3px rgba(212, 175, 55, 0.2), 0 4px 6px -2px rgba(212, 175, 55, 0.1);
+  }
+
+  .border-gold {
+    border-color: #d4af37;
+  }
+
+  .ring-gold {
+    --tw-ring-color: #d4af37;
+  }
+
+  .bg-gradient-bronze {
+    background: linear-gradient(135deg, #c8860d 0%, #d4a843 50%, #e6b85c 100%);
+  }
+
+  .bg-gradient-bronze-subtle {
+    background: linear-gradient(135deg, #fdf8f0 0%, #faebd7 50%, #f4d19b 100%);
+  }
+
+  .text-gradient-bronze {
+    background: linear-gradient(135deg, #c8860d 0%, #d4a843 50%, #e6b85c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-bronze {
+    box-shadow: 0 4px 14px 0 rgba(200, 134, 13, 0.15);
+  }
+
+  .shadow-bronze-lg {
+    box-shadow: 0 10px 25px -3px rgba(200, 134, 13, 0.2), 0 4px 6px -2px rgba(200, 134, 13, 0.1);
+  }
+
+  .border-bronze {
+    border-color: #c8860d;
+  }
+
+  .ring-bronze {
+    --tw-ring-color: #c8860d;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 45 100% 51%; /* Gold */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 97%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 51 100% 50%; /* Bright Gold */
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 45 100% 51%; /* Gold ring */
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 7%; /* Very dark gray, almost black */
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 45 100% 51%; /* Gold remains the same */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 220 5% 65%;
+    --accent: 51 100% 50%; /* Bright Gold */
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 45 100% 51%; /* Gold ring */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced hover effects for gold theme */
+.hover-gold-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-gold-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -3px rgba(212, 175, 55, 0.2), 0 4px 6px -2px rgba(212, 175, 55, 0.1);
+}
+
+/* Enhanced hover effects for bronze theme */
+.hover-bronze-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-bronze-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -3px rgba(200, 134, 13, 0.2), 0 4px 6px -2px rgba(200, 134, 13, 0.1);
+}
+
+/* Gold accent animations */
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: gold-shimmer 2s infinite;
+}
+
+/* Bronze accent animations */
+@keyframes bronze-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.bronze-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(200, 134, 13, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: bronze-shimmer 2s infinite;
+}
+
+/* Logo styling enhancements */
+.logo-glow {
+  filter: drop-shadow(0 0 10px rgba(200, 134, 13, 0.3));
+}
+
+.logo-glow:hover {
+  filter: drop-shadow(0 0 15px rgba(200, 134, 13, 0.5));
+  transition: filter 0.3s ease;
+}

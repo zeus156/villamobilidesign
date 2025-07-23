@@ -142,7 +142,7 @@ export default function VillaMobiliDesign() {
       customSolutions: "Solutions Sur Mesure",
       qualityCraftsmanship: "Artisanat de Qualité",
       onTimeDelivery: "Livraison Ponctuelle",
-      teamMembers: "Membres de l'��quipe",
+      teamMembers: "Membres de l'équipe",
       designersCraftsmen: "Designers & Artisans",
 
       // Portfolio Section

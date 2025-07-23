@@ -5,7 +5,6 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import {
   ArrowRight,
-  Award,
   CheckCircle,
   Mail,
   MapPin,
@@ -142,7 +141,7 @@ export default function VillaMobiliDesign() {
       customSolutions: "Solutions Sur Mesure",
       qualityCraftsmanship: "Artisanat de Qualité",
       onTimeDelivery: "Livraison Ponctuelle",
-      teamMembers: "Membres de l'équipe",
+      teamMembers: "Membres de l'Équipe",
       designersCraftsmen: "Designers & Artisans",
 
       // Portfolio Section
@@ -403,7 +402,6 @@ export default function VillaMobiliDesign() {
         "/images/portfolio/mac-cosmetics-main.jpg",
         "/images/portfolio/mac-cosmetics-detail-1.jpg",
         "/images/portfolio/mac-cosmetics-detail-2.jpg",
-        "/images/portfolio/mac-cosmetics-detail-2.jpg",
       ],
       longDescription: t.macCosmeticsDesc,
       location: "Luxury Shopping Mall",
@@ -656,8 +654,8 @@ ${message}
                 {t.heroTitle}
                 <span className="text-bronze-400 block"> {t.heroSubtitle}</span>
               </h1>
-              <p className="text-2xl text-bronze-100/90 mb-12 leading-relaxed max-w-3xl">{t.heroDescription}</p>
-              <div className="flex flex-col sm:flex-row gap-6 mb-16">
+              <p className="text-2xl text-bronze-100/90 mb-12 leading-relaxed max-w-3xl mx-auto">{t.heroDescription}</p>
+              <div className="flex justify-center mb-16">
                 <Link href="/portfolio">
                   <Button
                     size="lg"
@@ -666,13 +664,6 @@ ${message}
                     {t.viewOurWork} <ArrowRight className="ml-3 h-6 w-6" />
                   </Button>
                 </Link>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-xl px-10 py-4 bg-bronze-600/10 border-bronze-600/30 text-bronze-200 hover:bg-bronze-600/20"
-                >
-                  {t.getConsultation}
-                </Button>
               </div>
               <div className="grid grid-cols-3 gap-12">
                 <div className="text-center">
@@ -690,18 +681,6 @@ ${message}
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Award Badge */}
-        <div
-          className="absolute bottom-12 right-12 bg-bronze-600 text-black p-8 rounded-2xl shadow-2xl z-30 transition-all duration-300"
-          style={{
-            transform: `scale(${Math.max(0.5, videoScale)})`,
-            opacity: Math.max(0.3, videoOpacity),
-          }}
-        >
-          <Award className="h-10 w-10 mb-3" />
-          <div className="font-bold text-lg">{t.designExcellence}</div>
         </div>
 
         {/* Scroll Indicator */}
@@ -960,7 +939,7 @@ ${message}
             <div>
               <h4 className="font-semibold mb-4 text-bronze-200">{t.services}</h4>
               <ul className="space-y-2 text-bronze-300/80">
-                 <li>{t.footerRetailSpaceDesign}</li>
+                <li>{t.footerRetailSpaceDesign}</li>
                 <li>{t.footerCustomFurnitureCreation}</li>
                 <li>{t.footerBusinessRedesign}</li>
                 <li>{t.footerSpacePlanning}</li>

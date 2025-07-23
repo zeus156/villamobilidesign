@@ -1,12 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ArrowLeft, Filter, Globe } from "lucide-react"
+import { ArrowLeft, Filter, Globe, Store, Sofa, Sparkles, LayoutGrid, Palette, ClipboardList } from "lucide-react" // Import new icons
 import Image from "next/image"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card" // Import CardContent
 import { ProjectDetailDialog } from "@/components/project-detail-dialog"
 import { QuoteFormDialog } from "@/components/quote-form-dialog" // Import the new component
 
@@ -141,6 +141,34 @@ export default function PortfolioPage() {
       fatalesDesc:
         "Conception d'une boutique de cosmétiques de luxe pour FATALES, créant un espace élégant et sophistiqué qui met en valeur les produits de beauté haut de gamme. Le projet a mis l'accent sur des présentoirs personnalisés, un éclairage d'ambiance et une palette de couleurs raffinée pour une expérience d'achat exclusive.",
       fatalesResults: "Augmentation de 25% des ventes de produits de luxe, amélioration de l'image de marque",
+
+      // Services Section translations
+      servicesTitle: "Nos Services",
+      servicesDescription:
+        "Nous offrons des solutions de design commercial complètes qui transforment les espaces et stimulent le succès des entreprises",
+      retailSpaceDesign: "Design d'Espaces Commerciaux",
+      retailSpaceDesc:
+        "Conception et rénovation complète d'environnements commerciaux pour maximiser l'expérience client et le potentiel de vente.",
+      customFurnitureCreation: "Création de Mobilier Sur Mesure",
+      customFurnitureDesc:
+        "Pièces de mobilier sur mesure conçues et fabriquées spécifiquement pour vos besoins commerciaux et esthétiques.",
+      businessRedesign: "Refonte d'Entreprise",
+      businessRedesignDesc:
+        "Transformez les espaces commerciaux existants avec une refonte stratégique pour améliorer la fonctionnalité et l'attrait.",
+      spacePlanning: "Planification d'Espace",
+      spacePlanningDesc:
+        "Optimisez votre aménagement pour une efficacité maximale, un flux optimal et un engagement client renforcé.",
+      brandIntegration: "Intégration de Marque",
+      brandIntegrationDesc:
+        "Intégrez harmonieusement l'identité de votre marque dans la conception de l'espace physique.",
+      projectManagement: "Gestion de Projet",
+      projectManagementDesc:
+        "Coordination de projet de bout en bout, du concept à la réalisation avec une perturbation minimale des activités.",
+      // Footer service links
+      footerRetailSpaceDesign: "Design d'Espaces Commerciaux",
+      footerCustomFurnitureCreation: "Création de Mobilier Sur Mesure",
+      footerBusinessRedesign: "Refonte d'Entreprise",
+      footerSpacePlanning: "Planification d'Espace",
     },
     en: {
       backToHome: "Back to Home",
@@ -260,6 +288,32 @@ export default function PortfolioPage() {
       fatalesDesc:
         "Design of a luxury cosmetics boutique for FATALES, creating an elegant and sophisticated space that highlights high-end beauty products. The project focused on custom display units, ambient lighting, and a refined color palette for an exclusive shopping experience.",
       fatalesResults: "25% increase in luxury product sales, improved brand image",
+
+      // Services Section translations
+      servicesTitle: "Our Services",
+      servicesDescription:
+        "We offer comprehensive retail design solutions that transform spaces and drive business success",
+      retailSpaceDesign: "Retail Space Design",
+      retailSpaceDesc:
+        "Complete retail environment design and renovation to maximize customer experience and sales potential.",
+      customFurnitureCreation: "Custom Furniture Creation",
+      customFurnitureDesc:
+        "Bespoke furniture pieces designed and crafted specifically for your business needs and aesthetic.",
+      businessRedesign: "Business Redesign",
+      businessRedesignDesc:
+        "Transform existing commercial spaces with strategic redesign to improve functionality and appeal.",
+      spacePlanning: "Space Planning",
+      spacePlanningDesc: "Optimize your layout for maximum efficiency, flow, and customer engagement.",
+      brandIntegration: "Brand Integration",
+      brandIntegrationDesc: "Seamlessly integrate your brand identity into the physical space design.",
+      projectManagement: "Project Management",
+      projectManagementDesc:
+        "End-to-end project coordination from concept to completion with minimal business disruption.",
+      // Footer service links
+      footerRetailSpaceDesign: "Retail Space Design",
+      footerCustomFurnitureCreation: "Custom Furniture Creation",
+      footerBusinessRedesign: "Business Redesign",
+      footerSpacePlanning: "Space Planning",
     },
   }
 
@@ -481,6 +535,39 @@ export default function PortfolioPage() {
     },
   ]
 
+  const services = [
+    {
+      title: t.retailSpaceDesign,
+      description: t.retailSpaceDesc,
+      icon: <Store className="h-10 w-10 text-bronze-600" />,
+    },
+    {
+      title: t.customFurnitureCreation,
+      description: t.customFurnitureDesc,
+      icon: <Sofa className="h-10 w-10 text-bronze-600" />,
+    },
+    {
+      title: t.businessRedesign,
+      description: t.businessRedesignDesc,
+      icon: <Sparkles className="h-10 w-10 text-bronze-600" />,
+    },
+    {
+      title: t.spacePlanning,
+      description: t.spacePlanningDesc,
+      icon: <LayoutGrid className="h-10 w-10 text-bronze-600" />,
+    },
+    {
+      title: t.brandIntegration,
+      description: t.brandIntegrationDesc,
+      icon: <Palette className="h-10 w-10 text-bronze-600" />,
+    },
+    {
+      title: t.projectManagement,
+      description: t.projectManagementDesc,
+      icon: <ClipboardList className="h-10 w-10 text-bronze-600" />,
+    },
+  ]
+
   const filteredProjects =
     selectedCategory === t.all
       ? portfolioProjects
@@ -619,6 +706,30 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      {/* Services Section (Added to Portfolio Page) */}
+      <section id="services" className="py-20 bg-white relative z-40">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.servicesTitle}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t.servicesDescription}</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card
+                key={index}
+                className="border-0 shadow-lg hover:shadow-bronze-lg transition-shadow duration-300 hover-bronze-lift"
+              >
+                <CardContent className="p-8">
+                  <div className="mb-4">{service.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-br from-gray-100 to-white">
         <div className="container mx-auto px-4 text-center">
@@ -650,18 +761,30 @@ export default function PortfolioPage() {
             <div>
               <h4 className="font-semibold mb-4 text-bronze-200">{t.services}</h4>
               <ul className="space-y-2 text-bronze-300/80">
-                <li>{t.retailSpaceDesign}</li>
-                <li>{t.customFurnitureCreation}</li>
-                <li>{t.businessRedesign}</li>
-                <li>{t.spacePlanning}</li>
+                 <li>{t.footerRetailSpaceDesign}</li>
+                <li>{t.footerCustomFurnitureCreation}</li>
+                <li>{t.footerBusinessRedesign}</li>
+                <li>{t.footerSpacePlanning}</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-bronze-200">{t.company}</h4>
               <ul className="space-y-2 text-bronze-300/80">
-                <li>{t.aboutUs}</li>
-                <li>{t.ourWork}</li>
-                <li>{t.contact}</li>
+                <li>
+                  <Link href="/#about" className="hover:text-bronze-200 transition-colors">
+                    {t.aboutUs}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/portfolio" className="hover:text-bronze-200 transition-colors">
+                    {t.ourWork}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#contact" className="hover:text-bronze-200 transition-colors">
+                    {t.contact}
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

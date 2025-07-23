@@ -142,7 +142,7 @@ export default function VillaMobiliDesign() {
       customSolutions: "Solutions Sur Mesure",
       qualityCraftsmanship: "Artisanat de Qualité",
       onTimeDelivery: "Livraison Ponctuelle",
-      teamMembers: "Membres de l'Équipe",
+      teamMembers: "Membres de l'��quipe",
       designersCraftsmen: "Designers & Artisans",
 
       // Portfolio Section
@@ -198,12 +198,17 @@ export default function VillaMobiliDesign() {
 
       // Footer
       footerDescription:
-        "Transforming retail spaces into success stories through exceptional design and craftsmanship.",
+        "Transformer les espaces commerciaux en histoires de succès grâce à un design exceptionnel et un savoir-faire artisanal.",
       company: "Entreprise",
       aboutUs: "À Propos",
       testimonials: "Témoignages",
       connect: "Connecter",
       rightsReserved: "Tous droits réservés.",
+      // Footer service links
+      footerRetailSpaceDesign: "Design d'Espaces Commerciaux",
+      footerCustomFurnitureCreation: "Création de Mobilier Sur Mesure",
+      footerBusinessRedesign: "Refonte d'Entreprise",
+      footerSpacePlanning: "Planification d'Espace",
 
       bankReworkTitle: "Refonte Bancaire",
       bankReworkDesc:
@@ -330,6 +335,11 @@ export default function VillaMobiliDesign() {
       testimonials: "Testimonials",
       connect: "Connect",
       rightsReserved: "All rights reserved.",
+      // Footer service links
+      footerRetailSpaceDesign: "Retail Space Design",
+      footerCustomFurnitureCreation: "Custom Furniture Creation",
+      footerBusinessRedesign: "Business Redesign",
+      footerSpacePlanning: "Space Planning",
 
       bankReworkTitle: "Bank Rework Project",
       bankReworkDesc:
@@ -392,6 +402,7 @@ export default function VillaMobiliDesign() {
       images: [
         "/images/portfolio/mac-cosmetics-main.jpg",
         "/images/portfolio/mac-cosmetics-detail-1.jpg",
+        "/images/portfolio/mac-cosmetics-detail-2.jpg",
         "/images/portfolio/mac-cosmetics-detail-2.jpg",
       ],
       longDescription: t.macCosmeticsDesc,
@@ -690,8 +701,7 @@ ${message}
           }}
         >
           <Award className="h-10 w-10 mb-3" />
-          <div className="font-bold text-lg">{t.awardWinning}</div>
-          <div className="text-sm opacity-90">{t.designExcellence}</div>
+          <div className="font-bold text-lg">{t.designExcellence}</div>
         </div>
 
         {/* Scroll Indicator */}
@@ -950,19 +960,35 @@ ${message}
             <div>
               <h4 className="font-semibold mb-4 text-bronze-200">{t.services}</h4>
               <ul className="space-y-2 text-bronze-300/80">
-                <li>{t.retailSpaceDesign}</li>
-                <li>{t.customFurnitureCreation}</li>
-                <li>{t.businessRedesign}</li>
-                <li>{t.spacePlanning}</li>
+                 <li>{t.footerRetailSpaceDesign}</li>
+                <li>{t.footerCustomFurnitureCreation}</li>
+                <li>{t.footerBusinessRedesign}</li>
+                <li>{t.footerSpacePlanning}</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-bronze-200">{t.company}</h4>
               <ul className="space-y-2 text-bronze-300/80">
-                <li>{t.aboutUs}</li>
-                <li>{t.ourWork}</li>
-                <li>{t.testimonials}</li>
-                <li>{t.contact}</li>
+                <li>
+                  <Link href="#about" className="hover:text-bronze-200 transition-colors">
+                    {t.aboutUs}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/portfolio" className="hover:text-bronze-200 transition-colors">
+                    {t.ourWork}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#testimonials" className="hover:text-bronze-200 transition-colors">
+                    {t.testimonials}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contact" className="hover:text-bronze-200 transition-colors">
+                    {t.contact}
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

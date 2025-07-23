@@ -52,11 +52,27 @@ export function QuoteFormDialog({ isOpen, onClose, translations: t }: QuoteFormD
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real application, you would send this data to your backend
-    console.log("Quote Request Submitted:", formData)
+
+    const { firstName, lastName, email, phone, spaceType, width, length, message } = formData
+
+    const subject = encodeURIComponent(`${t.freeConsultation} Request from ${firstName} ${lastName}`)
+    const body = encodeURIComponent(`
+${t.firstName}: ${firstName}
+${t.lastName}: ${lastName}
+${t.email}: ${email}
+${t.phone}: ${phone}
+${t.spaceType}: ${spaceType}
+${t.width}: ${width} ${t.dimensionsUnit}
+${t.length}: ${length} ${t.dimensionsUnit}
+${t.message}:
+${message}
+    `)
+
+    // Replace 'your-email@example.com' with the actual recipient email address
+    const mailtoLink = `mailto:info@villamobilidesign.com?subject=${subject}&body=${body}`
+
+    window.location.href = mailtoLink
     setIsSubmitted(true)
-    // Optionally, reset form after submission
-    // setFormData({ firstName: "", lastName: "", email: "", phone: "", spaceType: "", width: "", length: "", message: "" });
   }
 
   return (

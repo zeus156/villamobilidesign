@@ -225,7 +225,7 @@ export default function PortfolioPage() {
       luxuryShowroomTitle: "Luxury Showroom Design",
       luxuryShowroomLocation: "Premium Shopping Center",
       luxuryShowroomDesc:
-        "High-end automotive showroom featuring dramatic lighting, premium finishes, and interactive display areas.",
+        "High-end automotive showroom featuring dramatic lighting, premium finishes and interactive display areas.",
       luxuryShowroomResults: "50% increase in qualified leads, enhanced brand perception",
 
       artisanCafeTitle: "Artisan Café Interior",
@@ -318,11 +318,15 @@ export default function PortfolioPage() {
   }
 
   const [language, setLanguage] = useState<"fr" | "en">("fr")
-  const [selectedCategory, setSelectedCategory] = useState(translations[language].all)
+  // Initialize with the untranslated key 'all'
+  const [selectedCategory, setSelectedCategory] = useState<
+    "all" | "retail" | "hospitality" | "corporate" | "furniture" | "residential"
+  >("all")
 
   useEffect(() => {
-    setSelectedCategory(translations[language].all)
-  }, [language, translations])
+    // Reset to 'all' (untranslated key) when language changes
+    setSelectedCategory("all")
+  }, [language])
 
   const [selectedProject, setSelectedProject] = useState<any>(null)
   const [isDetailDialogOpen, setIsDetailDialogOpen] = useState(false)
@@ -335,13 +339,14 @@ export default function PortfolioPage() {
 
   const t = translations[language]
 
-  const categories = [t.all, t.retail, t.hospitality, t.corporate, t.furniture, t.residential]
+  // Use untranslated keys for categories
+  const categoryKeys = ["all", "retail", "hospitality", "corporate", "furniture", "residential"]
 
   const portfolioProjects = [
     {
       id: 1,
       title: t.macCosmeticsTitle,
-      category: t.retail,
+      category: "retail", // Changed to untranslated key
       location: "Luxury Shopping Mall",
       date: "2024",
       description: t.macCosmeticsDesc,
@@ -356,7 +361,7 @@ export default function PortfolioPage() {
     {
       id: 2,
       title: t.bankReworkTitle,
-      category: t.corporate,
+      category: "corporate", // Changed to untranslated key
       location: "Financial District",
       date: "2024",
       description: t.bankReworkDesc,
@@ -371,7 +376,7 @@ export default function PortfolioPage() {
     {
       id: 3,
       title: t.techOfficeTitle,
-      category: t.corporate,
+      category: "corporate", // Changed to untranslated key
       location: t.techOfficeLocation,
       date: "2023",
       description: t.techOfficeDesc,
@@ -386,7 +391,7 @@ export default function PortfolioPage() {
     {
       id: 4,
       title: t.fatalesTitle,
-      category: t.retail,
+      category: "retail", // Changed to untranslated key
       location: "High-End Shopping District",
       date: "2023",
       description: t.fatalesDesc,
@@ -401,7 +406,7 @@ export default function PortfolioPage() {
     {
       id: 5,
       title: t.artisanCafeTitle,
-      category: t.hospitality,
+      category: "hospitality", // Changed to untranslated key
       location: t.artisanCafeLocation,
       date: "2023",
       description: t.artisanCafeDesc,
@@ -416,7 +421,7 @@ export default function PortfolioPage() {
     {
       id: 6,
       title: t.executiveFurnitureTitle,
-      category: t.furniture,
+      category: "furniture", // Changed to untranslated key
       location: t.executiveFurnitureLocation,
       date: "2023",
       description: t.executiveFurnitureDesc,
@@ -431,7 +436,7 @@ export default function PortfolioPage() {
     {
       id: 7,
       title: t.medicalOfficeTitle,
-      category: t.corporate,
+      category: "corporate", // Changed to untranslated key
       location: t.medicalOfficeLocation,
       date: "2022",
       description: t.medicalOfficeDesc,
@@ -446,7 +451,7 @@ export default function PortfolioPage() {
     {
       id: 8,
       title: t.luxuryPenthouseTitle,
-      category: t.residential,
+      category: "residential", // Changed to untranslated key
       location: t.luxuryPenthouseLocation,
       date: "2022",
       description: t.luxuryPenthouseDesc,
@@ -461,7 +466,7 @@ export default function PortfolioPage() {
     {
       id: 9,
       title: t.retailChainTitle,
-      category: t.retail,
+      category: "retail", // Changed to untranslated key
       location: t.retailChainLocation,
       date: "2022",
       description: t.retailChainDesc,
@@ -476,7 +481,7 @@ export default function PortfolioPage() {
     {
       id: 10,
       title: t.hotelLobbyTitle,
-      category: t.hospitality,
+      category: "hospitality", // Changed to untranslated key
       location: t.hotelLobbyLocation,
       date: "2022",
       description: t.hotelLobbyDesc,
@@ -491,7 +496,7 @@ export default function PortfolioPage() {
     {
       id: 11,
       title: t.artisanWorkshopTitle,
-      category: t.retail,
+      category: "retail", // Changed to untranslated key
       location: t.artisanWorkshopLocation,
       date: "2021",
       description: t.artisanWorkshopDesc,
@@ -506,7 +511,7 @@ export default function PortfolioPage() {
     {
       id: 12,
       title: t.homeOfficeTitle,
-      category: t.furniture,
+      category: "furniture", // Changed to untranslated key
       location: t.homeOfficeLocation,
       date: "2021",
       description: t.homeOfficeDesc,
@@ -521,7 +526,7 @@ export default function PortfolioPage() {
     {
       id: 13, // Use the next available ID
       title: t.bankReworkTitle,
-      category: t.corporate, // Use the translated 'Corporate' category
+      category: "corporate", // Changed to untranslated key
       location: "Financial District",
       date: "2024",
       description: t.bankReworkDesc,
@@ -569,7 +574,7 @@ export default function PortfolioPage() {
   ]
 
   const filteredProjects =
-    selectedCategory === t.all
+    selectedCategory === "all" // Compare with untranslated key
       ? portfolioProjects
       : portfolioProjects.filter((project) => project.category === selectedCategory)
 
@@ -641,18 +646,18 @@ export default function PortfolioPage() {
               <Filter className="h-5 w-5" />
               <span className="font-medium">{t.filterByCategory}</span>
             </div>
-            {categories.map((category) => (
+            {categoryKeys.map((categoryKey) => (
               <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category)}
+                key={categoryKey}
+                variant={selectedCategory === categoryKey ? "default" : "outline"}
+                onClick={() => setSelectedCategory(categoryKey)}
                 className={`transition-all duration-200 ${
-                  selectedCategory === category
+                  selectedCategory === categoryKey
                     ? "bg-bronze-600 hover:bg-bronze-700 text-black"
                     : "border-bronze-600 text-bronze-600 hover:bg-bronze-50"
                 }`}
               >
-                {category}
+                {t[categoryKey as keyof typeof t]} {/* Display translated category name */}
               </Button>
             ))}
           </div>
@@ -679,7 +684,7 @@ export default function PortfolioPage() {
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-bronze-600 text-black px-3 py-1 rounded-full text-sm font-medium">
-                      {project.category}
+                      {t[project.category as keyof typeof t]} {/* Display translated category name */}
                     </span>
                   </div>
                 </div>
@@ -761,7 +766,7 @@ export default function PortfolioPage() {
             <div>
               <h4 className="font-semibold mb-4 text-bronze-200">{t.services}</h4>
               <ul className="space-y-2 text-bronze-300/80">
-                 <li>{t.footerRetailSpaceDesign}</li>
+                <li>{t.footerRetailSpaceDesign}</li>
                 <li>{t.footerCustomFurnitureCreation}</li>
                 <li>{t.footerBusinessRedesign}</li>
                 <li>{t.footerSpacePlanning}</li>

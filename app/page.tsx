@@ -656,7 +656,7 @@ ${message}
               </h1>
               <p className="text-2xl text-bronze-100/90 mb-12 leading-relaxed max-w-3xl mx-auto">{t.heroDescription}</p>
               <div className="flex justify-center mb-16">
-                <Link href="/portfolio">
+                <Link href="#portfolio">
                   <Button
                     size="lg"
                     className="text-xl px-10 py-4 bg-bronze-600 hover:bg-bronze-700 text-black font-semibold"

@@ -581,7 +581,7 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="sticky top-0 w-full bg-black/95 backdrop-blur-sm border-b border-bronze-600/20 z-50">
+      <header className="sticky top-0 w-full bg-black backdrop-blur-sm border-b border-bronze-600/20 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link
             href="/"

@@ -547,7 +547,7 @@ ${message}
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="fixed top-0 w-full bg-black/95 backdrop-blur-sm border-b border-bronze-600/20 z-50">
+      <header className="fixed top-0 w-full bg-black backdrop-blur-sm border-b border-bronze-600/20 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center">
             <Image src="/logo.jpg" alt="Villa Mobili Design" width={240} height={80} className="h-16 w-auto" />

@@ -1007,7 +1007,7 @@ ${message}
             </div>
           </div>
           <div className="border-t border-bronze-600/20 mt-8 pt-8 text-center text-bronze-300/60">
-            <p>&copy; 2024 Villa Mobili Design. {t.rightsReserved}</p>
+            <p>&copy; 2025 Villa Mobili Design. {t.rightsReserved}</p>
           </div>
         </div>
       </footer>

@@ -77,30 +77,50 @@ ${message}
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-4 md:p-6 mx-4 max-w-[95vw]">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-gray-900">{t.freeConsultation}</DialogTitle>
-          <DialogDescription className="text-gray-600">{t.consultationDesc}</DialogDescription>
+          <DialogTitle className="text-2xl md:text-3xl font-bold text-gray-900">{t.freeConsultation}</DialogTitle>
+          <DialogDescription className="text-gray-600 text-sm md:text-base">{t.consultationDesc}</DialogDescription>
         </DialogHeader>
         {isSubmitted ? (
-          <div className="text-center py-8">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">{t.quoteSuccessTitle}</h3>
-            <p className="text-gray-700">{t.quoteSuccessMessage}</p>
+          <div className="text-center py-6 md:py-8">
+            <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">{t.quoteSuccessTitle}</h3>
+            <p className="text-gray-700 text-sm md:text-base">{t.quoteSuccessMessage}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="grid gap-6 py-4">
+          <form onSubmit={handleSubmit} className="grid gap-4 md:gap-6 py-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="firstName">{t.firstName}</Label>
-                <Input id="firstName" placeholder="John" value={formData.firstName} onChange={handleChange} required />
+                <Label htmlFor="firstName" className="text-sm md:text-base">
+                  {t.firstName}
+                </Label>
+                <Input
+                  id="firstName"
+                  placeholder="John"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  className="mt-1"
+                />
               </div>
               <div>
-                <Label htmlFor="lastName">{t.lastName}</Label>
-                <Input id="lastName" placeholder="Doe" value={formData.lastName} onChange={handleChange} required />
+                <Label htmlFor="lastName" className="text-sm md:text-base">
+                  {t.lastName}
+                </Label>
+                <Input
+                  id="lastName"
+                  placeholder="Doe"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  className="mt-1"
+                />
               </div>
             </div>
             <div>
-              <Label htmlFor="email">{t.email}</Label>
+              <Label htmlFor="email" className="text-sm md:text-base">
+                {t.email}
+              </Label>
               <Input
                 id="email"
                 type="email"
@@ -108,25 +128,37 @@ ${message}
                 value={formData.email}
                 onChange={handleChange}
                 required
+                className="mt-1"
               />
             </div>
             <div>
-              <Label htmlFor="phone">{t.phone}</Label>
-              <Input id="phone" placeholder="+1 (555) 123-4567" value={formData.phone} onChange={handleChange} />
+              <Label htmlFor="phone" className="text-sm md:text-base">
+                {t.phone}
+              </Label>
+              <Input
+                id="phone"
+                placeholder="+1 (555) 123-4567"
+                value={formData.phone}
+                onChange={handleChange}
+                className="mt-1"
+              />
             </div>
             <div>
-              <Label htmlFor="spaceType">{t.spaceType}</Label>
+              <Label htmlFor="spaceType" className="text-sm md:text-base">
+                {t.spaceType}
+              </Label>
               <Input
                 id="spaceType"
                 placeholder={t.spaceTypePlaceholder}
                 value={formData.spaceType}
                 onChange={handleChange}
                 required
+                className="mt-1"
               />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="width">
+                <Label htmlFor="width" className="text-sm md:text-base">
                   {t.width} ({t.dimensionsUnit})
                 </Label>
                 <Input
@@ -136,10 +168,11 @@ ${message}
                   value={formData.width}
                   onChange={handleChange}
                   required
+                  className="mt-1"
                 />
               </div>
               <div>
-                <Label htmlFor="length">
+                <Label htmlFor="length" className="text-sm md:text-base">
                   {t.length} ({t.dimensionsUnit})
                 </Label>
                 <Input
@@ -149,20 +182,26 @@ ${message}
                   value={formData.length}
                   onChange={handleChange}
                   required
+                  className="mt-1"
                 />
               </div>
             </div>
             <div>
-              <Label htmlFor="message">{t.message}</Label>
+              <Label htmlFor="message" className="text-sm md:text-base">
+                {t.message}
+              </Label>
               <Textarea
                 id="message"
                 placeholder={t.messagePlaceholder}
-                className="min-h-[100px]"
+                className="min-h-[80px] md:min-h-[100px] mt-1"
                 value={formData.message}
                 onChange={handleChange}
               />
             </div>
-            <Button type="submit" className="w-full bg-bronze-600 hover:bg-bronze-700 text-black font-semibold">
+            <Button
+              type="submit"
+              className="w-full bg-bronze-600 hover:bg-bronze-700 text-black font-semibold text-sm md:text-base py-3"
+            >
               {t.submitRequest}
             </Button>
           </form>

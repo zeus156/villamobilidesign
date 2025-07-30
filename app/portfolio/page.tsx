@@ -585,27 +585,27 @@ export default function PortfolioPage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center space-x-3 text-bronze-300 hover:text-bronze-200 transition-colors"
+            className="flex items-center space-x-2 md:space-x-3 text-bronze-300 hover:text-bronze-200 transition-colors"
           >
-            <ArrowLeft className="h-5 w-5" />
-            <span className="text-lg font-medium">{t.backToHome}</span>
+            <ArrowLeft className="h-4 w-4 md:h-5 md:w-5" />
+            <span className="text-base md:text-lg font-medium">{t.backToHome}</span>
           </Link>
           <div className="flex items-center">
-            <Image src="/logo.jpg" alt="Villa Mobili Design" width={240} height={80} className="h-16 w-auto" />
+            <Image src="/logo.jpg" alt="Villa Mobili Design" width={180} height={60} className="h-12 w-auto md:h-16" />
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <Button
               variant="outline"
               size="sm"
               onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
-              className="border-bronze-600/30 text-bronze-300 hover:bg-bronze-600/10 hover:text-bronze-200"
+              className="border-bronze-600/30 text-bronze-300 hover:bg-bronze-600/10 hover:text-bronze-200 text-xs md:text-sm"
             >
-              <Globe className="h-4 w-4 mr-2" />
+              <Globe className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
               {language === "fr" ? "EN" : "FR"}
             </Button>
             <Button
-              className="bg-bronze-600 hover:bg-bronze-700 text-black font-semibold"
-              onClick={() => setIsQuoteDialogOpen(true)} // Open quote dialog
+              className="bg-bronze-600 hover:bg-bronze-700 text-black font-semibold text-xs md:text-sm px-3 md:px-4 py-2"
+              onClick={() => setIsQuoteDialogOpen(true)}
             >
               {t.getQuote}
             </Button>
@@ -614,60 +614,64 @@ export default function PortfolioPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-white to-gray-100">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-white to-gray-100">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             {t.ourCompletePortfolio}
             <span className="text-bronze-600"> {t.complete}</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">{t.portfolioDescription}</p>
-          <div className="flex justify-center items-center space-x-8 text-gray-600">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 md:mb-8 px-4">
+            {t.portfolioDescription}
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 text-gray-600">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900">{portfolioProjects.length}+</div>
-              <div>{t.completedProjects}</div>
+              <div className="text-2xl md:text-3xl font-bold text-gray-900">{portfolioProjects.length}+</div>
+              <div className="text-sm md:text-base">{t.completedProjects}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900">6</div>
-              <div>{t.projectCategories}</div>
+              <div className="text-2xl md:text-3xl font-bold text-gray-900">6</div>
+              <div className="text-sm md:text-base">{t.projectCategories}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900">5+</div>
-              <div>{t.yearsShowcased}</div>
+              <div className="text-2xl md:text-3xl font-bold text-gray-900">5+</div>
+              <div className="text-sm md:text-base">{t.yearsShowcased}</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 bg-white border-b">
+      <section className="py-8 md:py-12 bg-white border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4">
-            <div className="flex items-center space-x-2 text-gray-600 mr-6">
-              <Filter className="h-5 w-5" />
-              <span className="font-medium">{t.filterByCategory}</span>
+          <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:flex-wrap md:justify-center md:gap-4">
+            <div className="flex items-center justify-center space-x-2 text-gray-600 mb-4 md:mb-0 md:mr-6">
+              <Filter className="h-4 w-4 md:h-5 md:w-5" />
+              <span className="font-medium text-sm md:text-base">{t.filterByCategory}</span>
             </div>
-            {categoryKeys.map((categoryKey) => (
-              <Button
-                key={categoryKey}
-                variant={selectedCategory === categoryKey ? "default" : "outline"}
-                onClick={() => setSelectedCategory(categoryKey)}
-                className={`transition-all duration-200 ${
-                  selectedCategory === categoryKey
-                    ? "bg-bronze-600 hover:bg-bronze-700 text-black"
-                    : "border-bronze-600 text-bronze-600 hover:bg-bronze-50"
-                }`}
-              >
-                {t[categoryKey as keyof typeof t]} {/* Display translated category name */}
-              </Button>
-            ))}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+              {categoryKeys.map((categoryKey) => (
+                <Button
+                  key={categoryKey}
+                  variant={selectedCategory === categoryKey ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(categoryKey)}
+                  className={`transition-all duration-200 text-xs md:text-sm px-3 md:px-4 py-2 ${
+                    selectedCategory === categoryKey
+                      ? "bg-bronze-600 hover:bg-bronze-700 text-black"
+                      : "border-bronze-600 text-bronze-600 hover:bg-bronze-50"
+                  }`}
+                >
+                  {t[categoryKey as keyof typeof t]}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filteredProjects.map((project) => (
               <Card
                 key={project.id}
@@ -680,28 +684,33 @@ export default function PortfolioPage() {
                     alt={project.title}
                     width={600}
                     height={400}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-bronze-600 text-black px-3 py-1 rounded-full text-sm font-medium">
-                      {t[project.category as keyof typeof t]} {/* Display translated category name */}
+                    <span className="bg-bronze-600 text-black px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium">
+                      {t[project.category as keyof typeof t]}
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                  <p className="text-gray-600 text-sm mb-3">
+                <div className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
+                  <p className="text-gray-600 text-xs md:text-sm mb-3">
                     {project.location} • {project.date}
                   </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs">
+                  <p className="text-gray-700 leading-relaxed mb-4 text-sm md:text-base line-clamp-3">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1 md:gap-2 mb-4">
+                    {project.tags.slice(0, 3).map((tag, tagIndex) => (
+                      <span key={tagIndex} className="bg-gray-100 text-gray-700 px-2 md:px-3 py-1 rounded-full text-xs">
                         {tag}
                       </span>
                     ))}
+                    {project.tags.length > 3 && (
+                      <span className="text-gray-500 text-xs">+{project.tags.length - 3}</span>
+                    )}
                   </div>
-                  <div className="text-sm text-gray-800 font-medium">
+                  <div className="text-xs md:text-sm text-gray-800 font-medium">
                     <span className="text-bronze-600">{t.projectResults}</span> {project.results}
                   </div>
                 </div>
@@ -736,18 +745,21 @@ export default function PortfolioPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-100 to-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-100 to-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.readyToStart}</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">{t.readyDescription}</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" className="bg-bronze-600 hover:bg-bronze-700 text-black font-semibold px-8 py-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.readyToStart}</h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 md:mb-8 px-4">{t.readyDescription}</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
+            <Button
+              size="lg"
+              className="bg-bronze-600 hover:bg-bronze-700 text-black font-semibold px-6 md:px-8 py-3 w-full sm:w-auto"
+            >
               {t.getFreeConsultation}
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-bronze-600 text-bronze-600 hover:bg-bronze-50 bg-transparent px-8 py-3"
+              className="border-bronze-600 text-bronze-600 hover:bg-bronze-50 bg-transparent px-6 md:px-8 py-3 w-full sm:w-auto"
             >
               {t.learnMoreAboutUs}
             </Button>
@@ -829,7 +841,7 @@ export default function PortfolioPage() {
             </div>
           </div>
           <div className="border-t border-bronze-600/20 mt-8 pt-8 text-center text-bronze-300/60">
-            <p>&copy; 2025 Villa Mobili Design. {t.rightsReserved}</p>
+            <p>&copy; 2024 Villa Mobili Design. {t.rightsReserved}</p>
           </div>
         </div>
       </footer>

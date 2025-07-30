@@ -72,6 +72,53 @@ body {
   .ring-bronze {
     --tw-ring-color: #c8860d;
   }
+
+  /* Mobile-specific utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Improved touch targets for mobile */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better mobile scrolling */
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Mobile-friendly hover states */
+  @media (hover: hover) {
+    .hover-bronze-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -3px rgba(200, 134, 13, 0.2), 0 4px 6px -2px rgba(200, 134, 13, 0.1);
+    }
+  }
+
+  /* Disable hover effects on touch devices */
+  @media (hover: none) {
+    .hover-bronze-lift:hover {
+      transform: none;
+      box-shadow: 0 4px 14px 0 rgba(200, 134, 13, 0.15);
+    }
+  }
+
+  /* Mobile video optimizations */
+  @media (max-width: 768px) {
+    .video-container {
+      height: 60vh;
+    }
+  }
 }
 
 @layer base {
@@ -125,6 +172,7 @@ body {
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 45 100% 51%; /* Gold ring */
+    --radius: 0.5rem;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -205,4 +253,21 @@ body {
 .logo-glow:hover {
   filter: drop-shadow(0 0 15px rgba(200, 134, 13, 0.5));
   transition: filter 0.3s ease;
+}
+
+/* Mobile-first responsive breakpoints */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Improve form inputs on mobile */
+@media (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
 }

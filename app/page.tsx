@@ -13,7 +13,6 @@ import {
   Pause,
   Maximize,
   Minimize,
-  Star,
   Users,
   Globe,
   Store,
@@ -561,9 +560,11 @@ ${message}
       <header className="fixed top-0 w-full bg-black backdrop-blur-sm border-b border-bronze-600/20 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <Image src="/logo.jpg" alt="Villa Mobili Design" width={240} height={80} className="h-16 w-auto" />
+            <Image src="/logo.jpg" alt="Villa Mobili Design" width={180} height={60} className="h-12 w-auto md:h-16" />
           </div>
-          <nav className="hidden md:flex space-x-8">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex space-x-8">
             <Link href="#home" className="text-bronze-300 hover:text-bronze-200 transition-colors">
               {t.home}
             </Link>
@@ -580,19 +581,20 @@ ${message}
               {t.contact}
             </Link>
           </nav>
-          <div className="flex items-center space-x-4">
+
+          <div className="flex items-center space-x-2 md:space-x-4">
             <Button
               variant="outline"
               size="sm"
               onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
-              className="border-bronze-600/30 text-bronze-300 hover:bg-bronze-600/10 hover:text-bronze-200"
+              className="border-bronze-600/30 text-bronze-300 hover:bg-bronze-600/10 hover:text-bronze-200 text-xs md:text-sm"
             >
-              <Globe className="h-4 w-4 mr-2" />
+              <Globe className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
               {language === "fr" ? "EN" : "FR"}
             </Button>
             <Button
-              className="hidden md:inline-flex bg-bronze-600 hover:bg-bronze-700 text-black font-semibold"
-              onClick={() => setIsQuoteFormDialogOpen(true)} // Open quote dialog
+              className="bg-bronze-600 hover:bg-bronze-700 text-black font-semibold text-xs md:text-sm px-3 md:px-4 py-2"
+              onClick={() => setIsQuoteFormDialogOpen(true)}
             >
               {t.getQuote}
             </Button>
@@ -660,36 +662,38 @@ ${message}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80 z-10" />
 
         {/* Content Overlay */}
-        <div className="relative z-20 min-h-screen flex items-center pt-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl">
-              <h1 className="text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+        <div className="relative z-20 min-h-screen flex items-center pt-20 px-4">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight">
                 {t.heroTitle}
                 <span className="text-bronze-400 block"> {t.heroSubtitle}</span>
               </h1>
-              <p className="text-2xl text-bronze-100/90 mb-12 leading-relaxed max-w-3xl mx-auto">{t.heroDescription}</p>
-              <div className="flex justify-center mb-16">
+              <p className="text-lg md:text-2xl text-bronze-100/90 mb-8 md:mb-12 leading-relaxed max-w-3xl mx-auto px-4">
+                {t.heroDescription}
+              </p>
+              <div className="flex justify-center mb-12 md:mb-16 px-4">
                 <Link href="#portfolio">
                   <Button
                     size="lg"
-                    className="text-xl px-10 py-4 bg-bronze-600 hover:bg-bronze-700 text-black font-semibold"
+                    className="text-lg md:text-xl px-8 md:px-10 py-3 md:py-4 bg-bronze-600 hover:bg-bronze-700 text-black font-semibold w-full sm:w-auto"
                   >
-                    {t.viewOurWork} <ArrowRight className="ml-3 h-6 w-6" />
+                    {t.viewOurWork} <ArrowRight className="ml-2 md:ml-3 h-5 w-5 md:h-6 md:w-6" />
                   </Button>
                 </Link>
               </div>
-              <div className="grid grid-cols-3 gap-12">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 px-4">
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-bronze-300 mb-2">150+</div>
-                  <div className="text-bronze-200/80 text-lg">{t.projectsCompleted}</div>
+                  <div className="text-3xl md:text-5xl font-bold text-bronze-300 mb-2">150+</div>
+                  <div className="text-bronze-200/80 text-base md:text-lg">{t.projectsCompleted}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-bronze-300 mb-2">98%</div>
-                  <div className="text-bronze-200/80 text-lg">{t.clientSatisfaction}</div>
+                  <div className="text-3xl md:text-5xl font-bold text-bronze-300 mb-2">98%</div>
+                  <div className="text-bronze-200/80 text-base md:text-lg">{t.clientSatisfaction}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-bronze-300 mb-2">15+</div>
-                  <div className="text-bronze-200/80 text-lg">{t.yearsExperience}</div>
+                  <div className="text-3xl md:text-5xl font-bold text-bronze-300 mb-2">15+</div>
+                  <div className="text-bronze-200/80 text-base md:text-lg">{t.yearsExperience}</div>
                 </div>
               </div>
             </div>
@@ -705,22 +709,22 @@ ${message}
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white relative z-40">
+      <section id="services" className="py-16 md:py-20 bg-white relative z-40">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.servicesTitle}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t.servicesDescription}</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.servicesTitle}</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">{t.servicesDescription}</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
               <Card
                 key={index}
                 className="border-0 shadow-lg hover:shadow-bronze-lg transition-shadow duration-300 hover-bronze-lift"
               >
-                <CardContent className="p-8">
+                <CardContent className="p-6 md:p-8">
                   <div className="mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -729,44 +733,44 @@ ${message}
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50 relative z-40">
+      <section id="about" className="py-16 md:py-20 bg-gray-50 relative z-40">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">{t.aboutTitle}</h2>
-              <p className="text-lg text-gray-600 mb-6">{t.aboutText1}</p>
-              <p className="text-lg text-gray-600 mb-8">{t.aboutText2}</p>
-              <div className="grid grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">{t.aboutTitle}</h2>
+              <p className="text-base md:text-lg text-gray-600 mb-4 md:mb-6">{t.aboutText1}</p>
+              <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">{t.aboutText2}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-6 w-6 text-bronze-600" />
-                  <span className="text-gray-700">{t.expertDesignTeam}</span>
+                  <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-bronze-600 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm md:text-base">{t.expertDesignTeam}</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-6 w-6 text-bronze-600" />
-                  <span className="text-gray-700">{t.customSolutions}</span>
+                  <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-bronze-600 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm md:text-base">{t.customSolutions}</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-6 w-6 text-bronze-600" />
-                  <span className="text-gray-700">{t.qualityCraftsmanship}</span>
+                  <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-bronze-600 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm md:text-base">{t.qualityCraftsmanship}</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-6 w-6 text-bronze-600" />
-                  <span className="text-gray-700">{t.onTimeDelivery}</span>
+                  <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-bronze-600 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm md:text-base">{t.onTimeDelivery}</span>
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative order-1 lg:order-2">
               <Image
                 src="/placeholder.svg?height=500&width=600"
                 alt="Villa Mobili Design team at work"
                 width={600}
                 height={500}
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl w-full"
               />
-              <div className="absolute -bottom-8 -left-8 bg-bronze-600 text-black p-6 rounded-xl shadow-lg">
-                <Users className="h-8 w-8 mb-2" />
-                <div className="font-semibold text-lg">25+ {t.teamMembers}</div>
-                <div className="text-sm opacity-90">{t.designersCraftsmen}</div>
+              <div className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 bg-bronze-600 text-black p-4 md:p-6 rounded-xl shadow-lg">
+                <Users className="h-6 w-6 md:h-8 md:w-8 mb-2" />
+                <div className="font-semibold text-base md:text-lg">25+ {t.teamMembers}</div>
+                <div className="text-xs md:text-sm opacity-90">{t.designersCraftsmen}</div>
               </div>
             </div>
           </div>
@@ -774,13 +778,13 @@ ${message}
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 bg-white relative z-40">
+      <section id="portfolio" className="py-16 md:py-20 bg-white relative z-40">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.portfolioTitle}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t.portfolioDescription}</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.portfolioTitle}</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">{t.portfolioDescription}</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {portfolioItems.map((item, index) => (
               <div key={index} className="group cursor-pointer" onClick={() => handleProjectClick(item)}>
                 <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-bronze-lg transition-all duration-500">
@@ -789,23 +793,23 @@ ${message}
                     alt={item.title}
                     width={400}
                     height={300}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="text-sm font-medium text-bronze-300">{item.category}</div>
-                    <div className="text-lg font-semibold">{item.title}</div>
+                    <div className="text-xs md:text-sm font-medium text-bronze-300">{item.category}</div>
+                    <div className="text-sm md:text-lg font-semibold">{item.title}</div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 md:mt-12 px-4">
             <Link href="/portfolio">
               <Button
                 size="lg"
                 variant="outline"
-                className="border-bronze-600 text-bronze-600 hover:bg-bronze-50 bg-transparent"
+                className="border-bronze-600 text-bronze-600 hover:bg-bronze-50 bg-transparent w-full sm:w-auto"
               >
                 {t.viewAllProjects} <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -814,70 +818,42 @@ ${message}
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50 relative z-40">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.testimonialsTitle}</h2>
-            <p className="text-xl text-gray-600">{t.testimonialsDescription}</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-bronze-lg transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-bronze-500 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{testimonial.company}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white relative z-40">
+      <section id="contact" className="py-16 md:py-20 bg-white relative z-40">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.contactTitle}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t.contactDescription}</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.contactTitle}</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">{t.contactDescription}</p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">{t.contactInformation}</h3>
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-16">
+            <div className="order-2 lg:order-1">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">{t.contactInformation}</h3>
               <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-bronze-100 p-3 rounded-lg">
-                    <Phone className="h-6 w-6 text-bronze-600" />
+                <div className="flex items-start space-x-4">
+                  <div className="bg-bronze-100 p-3 rounded-lg flex-shrink-0">
+                    <Phone className="h-5 w-5 md:h-6 md:w-6 text-bronze-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">{t.phone}</div>
-                    <div className="text-gray-600">+1 (555) 123-4567</div>
+                    <div className="font-semibold text-gray-900 text-sm md:text-base">{t.phone}</div>
+                    <div className="text-gray-600 text-sm md:text-base">+1 (555) 123-4567</div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="bg-bronze-100 p-3 rounded-lg">
-                    <Mail className="h-6 w-6 text-bronze-600" />
+                <div className="flex items-start space-x-4">
+                  <div className="bg-bronze-100 p-3 rounded-lg flex-shrink-0">
+                    <Mail className="h-5 w-5 md:h-6 md:w-6 text-bronze-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">{t.email}</div>
-                    <div className="text-gray-600">info@villamobilidesign.com</div>
+                    <div className="font-semibold text-gray-900 text-sm md:text-base">{t.email}</div>
+                    <div className="text-gray-600 text-sm md:text-base break-all">info@villamobilidesign.com</div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="bg-bronze-100 p-3 rounded-lg">
-                    <MapPin className="h-6 w-6 text-bronze-600" />
+                <div className="flex items-start space-x-4">
+                  <div className="bg-bronze-100 p-3 rounded-lg flex-shrink-0">
+                    <MapPin className="h-5 w-5 md:h-6 md:w-6 text-bronze-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">{t.address}</div>
-                    <div className="text-gray-600">
+                    <div className="font-semibold text-gray-900 text-sm md:text-base">{t.address}</div>
+                    <div className="text-gray-600 text-sm md:text-base">
                       123 Design Street
                       <br />
                       Creative District, CD 12345
@@ -885,51 +861,68 @@ ${message}
                   </div>
                 </div>
               </div>
-              <div className="mt-8 p-6 bg-bronze-50 rounded-xl">
-                <h4 className="font-semibold text-gray-900 mb-2">{t.freeConsultation}</h4>
-                <p className="text-gray-600 text-sm">{t.consultationDesc}</p>
+              <div className="mt-6 md:mt-8 p-4 md:p-6 bg-bronze-50 rounded-xl">
+                <h4 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">{t.freeConsultation}</h4>
+                <p className="text-gray-600 text-xs md:text-sm">{t.consultationDesc}</p>
               </div>
             </div>
-            <div>
+            <div className="order-1 lg:order-2">
               <Card className="border-0 shadow-lg">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">{t.sendMessage}</h3>
-                  <form className="space-y-6" onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-2 gap-4">
+                <CardContent className="p-6 md:p-8">
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">{t.sendMessage}</h3>
+                  <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="firstName">{t.firstName}</Label>
-                        <Input id="firstName" name="firstName" placeholder="John" />
+                        <Label htmlFor="firstName" className="text-sm md:text-base">
+                          {t.firstName}
+                        </Label>
+                        <Input id="firstName" name="firstName" placeholder="John" className="mt-1" />
                       </div>
                       <div>
-                        <Label htmlFor="lastName">{t.lastName}</Label>
-                        <Input id="lastName" name="lastName" placeholder="Doe" />
+                        <Label htmlFor="lastName" className="text-sm md:text-base">
+                          {t.lastName}
+                        </Label>
+                        <Input id="lastName" name="lastName" placeholder="Doe" className="mt-1" />
                       </div>
                     </div>
                     <div>
-                      <Label htmlFor="email">{t.email}</Label>
-                      <Input id="email" name="email" type="email" placeholder="john@example.com" />
+                      <Label htmlFor="email" className="text-sm md:text-base">
+                        {t.email}
+                      </Label>
+                      <Input id="email" name="email" type="email" placeholder="john@example.com" className="mt-1" />
                     </div>
                     <div>
-                      <Label htmlFor="phone">{t.phone}</Label>
-                      <Input id="phone" name="phone" placeholder="+1 (555) 123-4567" />
+                      <Label htmlFor="phone" className="text-sm md:text-base">
+                        {t.phone}
+                      </Label>
+                      <Input id="phone" name="phone" placeholder="+1 (555) 123-4567" className="mt-1" />
                     </div>
                     <div>
-                      <Label htmlFor="projectType">{t.projectType}</Label>
-                      <Input id="projectType" name="projectType" placeholder={t.projectTypePlaceholder} />
+                      <Label htmlFor="projectType" className="text-sm md:text-base">
+                        {t.projectType}
+                      </Label>
+                      <Input
+                        id="projectType"
+                        name="projectType"
+                        placeholder={t.projectTypePlaceholder}
+                        className="mt-1"
+                      />
                     </div>
                     <div>
-                      <Label htmlFor="message">{t.message}</Label>
+                      <Label htmlFor="message" className="text-sm md:text-base">
+                        {t.message}
+                      </Label>
                       <Textarea
                         id="message"
                         name="message"
                         placeholder={t.messagePlaceholder}
-                        className="min-h-[120px]"
+                        className="min-h-[100px] md:min-h-[120px] mt-1"
                       />
                     </div>
                     <Button
                       size="lg"
                       type="submit"
-                      className="w-full bg-bronze-600 hover:bg-bronze-700 text-black font-semibold"
+                      className="w-full bg-bronze-600 hover:bg-bronze-700 text-black font-semibold text-sm md:text-base"
                     >
                       {t.sendMessageBtn}
                     </Button>

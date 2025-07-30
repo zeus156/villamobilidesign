@@ -27,18 +27,18 @@ export function ProjectDetailDialog({ project, isOpen, onClose }: ProjectDetailD
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto p-6">
+      <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto p-4 md:p-6 mx-4 max-w-[95vw]">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-gray-900">{project.title}</DialogTitle>
-          <DialogDescription className="text-gray-600">
+          <DialogTitle className="text-2xl md:text-3xl font-bold text-gray-900 pr-8">{project.title}</DialogTitle>
+          <DialogDescription className="text-gray-600 text-sm md:text-base">
             {project.location} {project.date && `• ${project.date}`}
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-6 py-4">
+        <div className="grid gap-4 md:gap-6 py-4">
           {project.images.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
               {project.images.map((imgSrc, index) => (
-                <div key={index} className="relative w-full h-60 rounded-lg overflow-hidden">
+                <div key={index} className="relative w-full h-48 md:h-60 rounded-lg overflow-hidden">
                   <Image
                     src={imgSrc || "/placeholder.svg"}
                     alt={`${project.title} image ${index + 1}`}
@@ -51,14 +51,19 @@ export function ProjectDetailDialog({ project, isOpen, onClose }: ProjectDetailD
             </div>
           )}
 
-          <p className="text-gray-700 leading-relaxed">{project.longDescription || project.description}</p>
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+            {project.longDescription || project.description}
+          </p>
 
           {project.tags && project.tags.length > 0 && (
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">Tags:</h4>
+              <h4 className="font-semibold text-gray-800 mb-2 text-sm md:text-base">Tags:</h4>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag, index) => (
-                  <span key={index} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                  <span
+                    key={index}
+                    className="bg-gray-100 text-gray-700 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -68,8 +73,8 @@ export function ProjectDetailDialog({ project, isOpen, onClose }: ProjectDetailD
 
           {project.results && (
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">Project Results:</h4>
-              <p className="text-gray-700">{project.results}</p>
+              <h4 className="font-semibold text-gray-800 mb-2 text-sm md:text-base">Project Results:</h4>
+              <p className="text-gray-700 text-sm md:text-base">{project.results}</p>
             </div>
           )}
         </div>

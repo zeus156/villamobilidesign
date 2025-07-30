@@ -46,8 +46,19 @@ export default function VillaMobiliDesign() {
   const [isDetailDialogOpen, setIsDetailDialogOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
+    let ticking = false
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrollY(window.scrollY)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -515,10 +526,10 @@ export default function VillaMobiliDesign() {
     },
   ]
 
-  // Calculate video scale and opacity based on scroll
-  const videoScale = Math.max(0.3, 1 - scrollY * 0.0012)
-  const videoOpacity = Math.max(0.1, 1 - scrollY * 0.0015)
-  const videoTranslateY = scrollY * 0.5
+  // Calculate video scale and opacity based on scroll (optimized)
+  const videoScale = Math.max(0.8, 1 - scrollY * 0.0008) // Less aggressive scaling
+  const videoOpacity = Math.max(0.3, 1 - scrollY * 0.001) // Less aggressive opacity change
+  const videoTranslateY = scrollY * 0.3 // Reduced translation
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -593,9 +604,9 @@ ${message}
       <section id="home" className="relative min-h-screen overflow-hidden">
         {/* Full Screen Video Background */}
         <div
-          className="fixed inset-0 z-0 transition-all duration-300 ease-out"
+          className="fixed inset-0 z-0 transition-all duration-100 ease-out will-change-transform"
           style={{
-            transform: `scale(${videoScale}) translateY(${videoTranslateY}px)`,
+            transform: `translate3d(0, ${videoTranslateY}px, 0) scale(${videoScale})`,
             opacity: videoOpacity,
           }}
         >
@@ -608,7 +619,9 @@ ${message}
                 muted
                 autoPlay
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover"
+                style={{ willChange: "auto" }}
               >
                 <source src="/retail-showcase.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

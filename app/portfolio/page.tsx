@@ -1,7 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ArrowLeft, Filter, Globe, Store, Sofa, Sparkles, LayoutGrid, Palette, ClipboardList } from "lucide-react" // Import new icons
+import {
+  ArrowLeft,
+  Filter,
+  Globe,
+  Store,
+  Sofa,
+  Sparkles,
+  LayoutGrid,
+  Palette,
+  ClipboardList,
+  Menu,
+  X,
+} from "lucide-react" // Import new icons
 import Image from "next/image"
 import Link from "next/link"
 
@@ -331,6 +343,7 @@ export default function PortfolioPage() {
   const [selectedProject, setSelectedProject] = useState<any>(null)
   const [isDetailDialogOpen, setIsDetailDialogOpen] = useState(false)
   const [isQuoteDialogOpen, setIsQuoteDialogOpen] = useState(false) // State for quote dialog
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false) // Add mobile menu state
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project)
@@ -588,29 +601,99 @@ export default function PortfolioPage() {
             className="flex items-center space-x-2 md:space-x-3 text-bronze-300 hover:text-bronze-200 transition-colors"
           >
             <ArrowLeft className="h-4 w-4 md:h-5 md:w-5" />
-            <span className="text-base md:text-lg font-medium">{t.backToHome}</span>
+            <span className="text-base md:text-lg font-medium hidden sm:inline">{t.backToHome}</span>
           </Link>
           <div className="flex items-center">
             <Image src="/logo.jpg" alt="Villa Mobili Design" width={180} height={60} className="h-12 w-auto md:h-16" />
           </div>
-          <div className="flex items-center space-x-2 md:space-x-4">
+
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center space-x-4">
             <Button
               variant="outline"
               size="sm"
               onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
-              className="border-bronze-600/30 text-bronze-300 hover:bg-bronze-600/10 hover:text-bronze-200 text-xs md:text-sm"
+              className="border-bronze-600/30 text-bronze-300 hover:bg-bronze-600/10 hover:text-bronze-200"
             >
-              <Globe className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
+              <Globe className="h-4 w-4 mr-2" />
               {language === "fr" ? "EN" : "FR"}
             </Button>
             <Button
-              className="bg-bronze-600 hover:bg-bronze-700 text-black font-semibold text-xs md:text-sm px-3 md:px-4 py-2"
+              className="bg-bronze-600 hover:bg-bronze-700 text-black font-semibold"
               onClick={() => setIsQuoteDialogOpen(true)}
             >
               {t.getQuote}
             </Button>
           </div>
+
+          {/* Mobile Actions */}
+          <div className="flex lg:hidden items-center space-x-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
+              className="border-bronze-600/30 text-bronze-300 hover:bg-bronze-600/10 hover:text-bronze-200 text-xs px-2"
+            >
+              <Globe className="h-3 w-3 mr-1" />
+              {language === "fr" ? "EN" : "FR"}
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-bronze-300 hover:text-bronze-200 hover:bg-bronze-600/10 p-2"
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-black border-t border-bronze-600/20">
+            <nav className="container mx-auto px-4 py-4 space-y-4">
+              <Link
+                href="/#services"
+                className="block text-bronze-300 hover:text-bronze-200 transition-colors py-2 border-b border-bronze-600/10"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t.services}
+              </Link>
+              <Link
+                href="/#about"
+                className="block text-bronze-300 hover:text-bronze-200 transition-colors py-2 border-b border-bronze-600/10"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t.aboutUs}
+              </Link>
+              <Link
+                href="/portfolio"
+                className="block text-bronze-300 hover:text-bronze-200 transition-colors py-2 border-b border-bronze-600/10"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t.ourWork}
+              </Link>
+              <Link
+                href="/#contact"
+                className="block text-bronze-300 hover:text-bronze-200 transition-colors py-2 border-b border-bronze-600/10"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t.contact}
+              </Link>
+              <div className="pt-4">
+                <Button
+                  className="w-full bg-bronze-600 hover:bg-bronze-700 text-black font-semibold"
+                  onClick={() => {
+                    setIsQuoteDialogOpen(true)
+                    setIsMobileMenuOpen(false)
+                  }}
+                >
+                  {t.getQuote}
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}

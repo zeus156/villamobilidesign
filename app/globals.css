@@ -119,6 +119,18 @@ body {
       height: 60vh;
     }
   }
+
+  /* Offset for fixed header - adjust sections to account for header height */
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+
+  /* For mobile, use smaller offset */
+  @media (max-width: 768px) {
+    section[id] {
+      scroll-margin-top: 70px;
+    }
+  }
 }
 
 @layer base {
@@ -270,4 +282,9 @@ body {
   select {
     font-size: 16px; /* Prevents zoom on iOS */
   }
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }

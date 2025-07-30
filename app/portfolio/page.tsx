@@ -45,8 +45,6 @@ export default function PortfolioPage() {
       readyToStart: "Prêt à Commencer Votre Projet ?",
       readyDescription:
         "Discutons de la façon dont nous pouvons transformer votre espace et créer un design qui stimule le succès de votre entreprise.",
-      getFreeConsultation: "Consultation Gratuite",
-      learnMoreAboutUs: "En Savoir Plus Sur Nous",
       footerDescription:
         "Transformer les espaces commerciaux en histoires de succès grâce à un design exceptionnel et un savoir-faire artisanal.",
       services: "Services",
@@ -203,8 +201,6 @@ export default function PortfolioPage() {
       readyToStart: "Ready to Start Your Project?",
       readyDescription:
         "Let's discuss how we can transform your space and create a design that drives your business success.",
-      getFreeConsultation: "Get Free Consultation",
-      learnMoreAboutUs: "Learn More About Us",
       footerDescription:
         "Transforming retail spaces into success stories through exceptional design and craftsmanship.",
       services: "Services",
@@ -832,19 +828,13 @@ export default function PortfolioPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.readyToStart}</h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 md:mb-8 px-4">{t.readyDescription}</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
+          <div className="flex justify-center px-4">
             <Button
               size="lg"
               className="bg-bronze-600 hover:bg-bronze-700 text-black font-semibold px-6 md:px-8 py-3 w-full sm:w-auto"
+              onClick={() => setIsQuoteDialogOpen(true)}
             >
-              {t.getFreeConsultation}
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-bronze-600 text-bronze-600 hover:bg-bronze-50 bg-transparent px-6 md:px-8 py-3 w-full sm:w-auto"
-            >
-              {t.learnMoreAboutUs}
+              {t.getQuote}
             </Button>
           </div>
         </div>

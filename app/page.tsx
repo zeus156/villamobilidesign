@@ -232,6 +232,12 @@ export default function VillaMobiliDesign() {
         "Une refonte vibrante et moderne pour un magasin MAC Cosmetics, axée sur des stations de beauté interactives, un éclairage dynamique et une expérience client luxueuse. Le design intègre des couleurs audacieuses et des finitions élégantes pour refléter l'identité de la marque.",
       macCosmeticsResults: "Augmentation de 30% du trafic piétonnier, visibilité accrue des produits",
 
+      medicalOfficeTitle: "Rénovation de Bureau Médical",
+      medicalOfficeDesc:
+        "Design centré sur le patient axé sur le confort, la confidentialité et un flux de travail efficace avec des schémas de couleurs apaisantes.",
+      medicalOfficeResults:
+        "20% de réduction de la perception d'attente des patients, efficacité du personnel améliorée",
+
       fatalesTitle: "FATALES Boutique de Cosmétiques",
       fatalesDesc:
         "Conception d'une boutique de cosmétiques de luxe pour FATALES, créant un espace élégant et sophistiqué qui met en valeur les produits de beauté haut de gamme. Le projet a mis l'accent sur des présentoirs personnalisés, un éclairage d'ambiance et une palette de couleurs raffinée pour une expérience d'achat exclusive.",
@@ -363,6 +369,12 @@ export default function VillaMobiliDesign() {
         "A vibrant and modern redesign for a MAC Cosmetics store, focusing on interactive beauty stations, dynamic lighting, and a luxurious customer experience. The design incorporates bold colors and sleek finishes to reflect the brand's identity.",
       macCosmeticsResults: "Increased foot traffic by 30%, enhanced product visibility",
 
+      medicalOfficeTitle: "Rénovation de Bureau Médical",
+      medicalOfficeDesc:
+        "Design centré sur le patient axé sur le confort, la confidentialité et un flux de travail efficace avec des schémas de couleurs apaisantes.",
+      medicalOfficeResults:
+        "20% de réduction de la perception d'attente des patients, efficacité du personnel améliorée",
+
       fatalesTitle: "FATALES Cosmetics Boutique",
       fatalesDesc:
         "Design of a luxury cosmetics boutique for FATALES, creating an elegant and sophisticated space that highlights high-end beauty products. The project focused on custom display units, ambient lighting, and a refined color palette for an exclusive shopping experience.",
@@ -429,8 +441,8 @@ export default function VillaMobiliDesign() {
       image: "/images/portfolio/bank-rework-main.jpg",
       images: [
         "/images/portfolio/bank-rework-main.jpg",
-        "/images/portfolio/bank-rework-main.jpg", // Using main image for detail 1 as no specific detail image was provided
-        "/images/portfolio/bank-rework-main.jpg", // Using main image for detail 2 as no specific detail image was provided
+        "/images/portfolio/bank-rework-detail-1.jpg", // Using main image for detail 1 as no specific detail image was provided
+        "/images/portfolio/bank-rework-detail-2.jpg", // Using main image for detail 2 as no specific detail image was provided
       ],
       longDescription: t.bankReworkDesc,
       location: "Financial District",
@@ -440,20 +452,19 @@ export default function VillaMobiliDesign() {
     },
     {
       id: 3,
-      title: t.officeRenovation,
-      category: "Corporate",
-      image: "/images/portfolio/office-main.jpg",
+      title: t.medicalOfficeTitle,
+      category: "corporate", // Changed to untranslated key
+      image: "/images/portfolio/medical-main.jpeg",
       images: [
-        "/images/portfolio/office-detail-1.jpg",
-        "/images/portfolio/office-detail-2.jpg",
-        "/images/portfolio/office-detail-3.jpg",
+        "/images/portfolio/medical-main.jpeg",
+        "/images/portfolio/medical-detail-1.jpeg",
+        "/images/portfolio/medical-detail-2.jpeg",
       ],
-      longDescription:
-        "Designed a modern workspace for a tech startup in an innovation hub. The focus was on fostering collaboration through open-plan layouts, flexible meeting spaces, and integrated smart technology. We also incorporated biophilic elements to enhance employee well-being and productivity.",
-      location: "Innovation Hub",
-      date: "2023",
-      tags: ["Office Design", "Collaboration", "Technology", "Corporate"],
-      results: "30% improvement in employee satisfaction, enhanced productivity",
+      location: t.medicalOfficeLocation,
+      date: "2022",
+      description: t.medicalOfficeDesc,
+      tags: ["Healthcare", "Patient Experience", "Workflow"],
+      results: t.medicalOfficeResults,
     },
     {
       id: 4,

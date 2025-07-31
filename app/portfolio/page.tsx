@@ -383,7 +383,7 @@ export default function PortfolioPage() {
       results: t.bankReworkResults,
     },
     {
-      id: 3,
+      id: 7,
       title: t.techOfficeTitle,
       category: "corporate", // Changed to untranslated key
       location: t.techOfficeLocation,
@@ -443,17 +443,18 @@ export default function PortfolioPage() {
       results: t.executiveFurnitureResults,
     },
     {
-      id: 7,
+      id: 3,
       title: t.medicalOfficeTitle,
       category: "corporate", // Changed to untranslated key
+      image: "/images/portfolio/medical-main.jpeg",
+      images: [
+        "/images/portfolio/medical-main.jpeg",
+        "/images/portfolio/medical-detail-1.jpeg",
+        "/images/portfolio/medical-detail-2.jpeg",
+      ],
       location: t.medicalOfficeLocation,
       date: "2022",
       description: t.medicalOfficeDesc,
-      images: [
-        "/images/portfolio/medical-office-detail-1.jpg",
-        "/images/portfolio/medical-office-detail-2.jpg",
-        "/images/portfolio/medical-office-detail-3.jpg",
-      ],
       tags: ["Healthcare", "Patient Experience", "Workflow"],
       results: t.medicalOfficeResults,
     },
